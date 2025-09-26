@@ -7,4 +7,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <!-- ML.NET core + image transforms + TF scoring ONLY -->
+    <PackageReference Include="Microsoft.ML" Version="4.0.2" />
+    <PackageReference Include="Microsoft.ML.ImageAnalytics" Version="4.0.2" />
+    <PackageReference Include="Microsoft.ML.TensorFlow" Version="4.0.2" />
+    <PackageReference Include="SciSharp.TensorFlow.Redist" Version="2.10.0" />
+    <PackageReference Include="TensorFlow.NET" Version="0.20.1" />
+  </ItemGroup>
+
 </Project>
