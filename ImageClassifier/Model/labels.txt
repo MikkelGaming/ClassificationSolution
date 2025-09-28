@@ -1,3 +1,0 @@
-0 Glass
-1 Metal
-2 Plastic
