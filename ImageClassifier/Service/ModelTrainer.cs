@@ -1,3 +1,4 @@
+using ImageClassifier.Application;
 using ImageClassifier.Domain;
 using Microsoft.ML;
 using Microsoft.ML.Data;
@@ -9,7 +10,6 @@ public static class ModelTrainer
 {
     private static string baseDir = @"../Images"; // must contain subfolders for each class
     private static string[] classes = new[] { "Glass", "Metal", "Plastic" };
-    private static HashSet<string> exts = new HashSet<string>(StringComparer.OrdinalIgnoreCase) { ".jpg", ".jpeg", ".png", ".bmp" };
     private static List<ImageData> trainList = new();
     private static List<ImageData> validList = new();
     private static string _modelPath = "";
@@ -21,7 +21,7 @@ public static class ModelTrainer
         _modelPath = modelPath;
         _mL = mL;
 
-        ScanFolders();
+        FolderRetriver.ScanFolders(classes, ref trainList, ref validList, baseDir);
 
         // If saved model exists, load it; otherwise train and save
         if (File.Exists(modelPath))
@@ -181,53 +181,7 @@ public static class ModelTrainer
         return model;
     }
 
-    private static void ScanFolders()
-    {
-        Console.WriteLine("=== Scanning folders ===");
-        foreach (var cls in classes)
-        {
-            var trainDir = Path.Combine(baseDir, cls, "train");
-            var validDir = Path.Combine(baseDir, cls, "model_test"); // kept your naming
 
-            Console.WriteLine($"\n[CLASS] {cls}");
-            Console.WriteLine($" trainDir : {trainDir}  {(Directory.Exists(trainDir) ? "" : "(MISSING)")}");
-            Console.WriteLine($" validDir : {validDir}  {(Directory.Exists(validDir) ? "" : "(MISSING)")}");
-
-            int trainCount = 0, validCount = 0;
-
-            if (Directory.Exists(trainDir))
-            {
-                foreach (var f in Directory.EnumerateFiles(trainDir, "*.*", SearchOption.AllDirectories))
-                {
-                    if (!exts.Contains(Path.GetExtension(f))) continue;
-                    trainList.Add(new ImageData { ImagePath = f, Label = cls });
-                    trainCount++;
-                    Console.WriteLine($"  [train] {cls} -> {f}");
-                }
-            }
-
-            if (Directory.Exists(validDir))
-            {
-                foreach (var f in Directory.EnumerateFiles(validDir, "*.*", SearchOption.AllDirectories))
-                {
-                    if (!exts.Contains(Path.GetExtension(f))) continue;
-                    validList.Add(new ImageData { ImagePath = f, Label = cls });
-                    validCount++;
-                    Console.WriteLine($"  [valid] {cls} -> {f}");
-                }
-            }
-
-            Console.WriteLine($"  SUM: train={trainCount}, valid={validCount}");
-        }
-
-        Console.WriteLine($"\nTOTALS: train={trainList.Count}, valid={validList.Count}");
-        if (trainList.Count == 0 || validList.Count == 0)
-        {
-            Console.WriteLine("\nNo images found in train/model_test (or extensions do not match).");
-            Console.WriteLine("Adjust baseDir or add file extensions to 'exts'.");
-            return;
-        }
-    }
 
 
     /// <summary>

@@ -1,9 +1,9 @@
 
 using ImageClassifier.Domain;
-using ImageClassifier.Interface_Adapter;
+using ImageClassifier.Service;
 using Microsoft.ML;
 
-namespace ImageClassifier.Service;
+namespace ImageClassifier.Interface_Adapter;
 
 public class PredictionEngine : IPredictionEngine
 {

@@ -1,7 +1,6 @@
 ﻿
 using ImageClassifier.Domain;
 using ImageClassifier.Interface_Adapter;
-using ImageClassifier.Service;
 
 namespace ImageClassifier.Application;
 
@@ -11,13 +10,16 @@ class Program
     {
         try
         {
-            PredictionEngine predictionEngine = new("imageClassifier_model.zip");
+            IPredictionEngine predictionEngine = new PredictionEngine("imageClassifier_model.zip");
 
             string[] labelNames = { "Glass", "Metal", "Plastic" };
+            List<ImageData> tl = [];
+            List<ImageData> vl = [];
+            FolderRetriver.ScanFolders(labelNames, ref tl, ref vl, @"../Images");
 
             // Print predictions for a small subset of validation images to sanity-check
             Console.WriteLine("\n=== Quick validation sample predictions ===");
-            foreach (var sample in ModelTrainer.GetValidList().Take(10))
+            foreach (var sample in vl.Take(10))
             {
                 var p = predictionEngine.Predict(sample);
                 PrintPrediction(sample.ImagePath, p, sample.Label, labelNames);
