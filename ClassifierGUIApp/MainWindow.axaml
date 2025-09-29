@@ -1,0 +1,30 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="ClassifierGUIApp.MainWindow"
+        Title="ClassifierGUIApp">
+    
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Bildauswahl -->
+        <Button x:Name="btnSelectImage" Content="Select Image" 
+                Width="120" Height="30" Margin="0,0,0,10"
+                Click="btnSelectImage_Click"/>
+        
+       <Border Grid.Row="1" BorderThickness="1" BorderBrush="Gray" 
+                HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Image x:Name="imgPreview" Stretch="Uniform" />
+        </Border>
+
+        <Button x:Name="btnRecognize" Grid.Row="2" Content="Start Recognition"
+                Width="200" Height="30" Margin="0,10,0,0"
+                Click="btnRecognize_Click"/>
+    </Grid>
+</Window>
