@@ -6,7 +6,7 @@ namespace ImageClassifier;
 
 public static class ModelTrainer
 {
-    private static string baseDir = @"C:\Users\mikke\Pictures\Billedeklassifikation"; // must contain subfolders for each class
+    private static string baseDir = @"/home/mikkel/Temp/Billedeklassifikation"; // must contain subfolders for each class
     private static string[] classes = new[] { "Glass", "Metal", "Plastic" };
     private static HashSet<string> exts = new HashSet<string>(StringComparer.OrdinalIgnoreCase) { ".jpg", ".jpeg", ".png", ".bmp" };
     private static List<ImageData> trainList = new();

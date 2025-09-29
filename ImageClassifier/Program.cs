@@ -9,7 +9,6 @@ class Program
         {
             PredictionEngine predictionEngine = new("imageClassifier_model.zip");
 
-
             string testImage = @"C:\Projects\C#\ClassificationSolution\ImageClassifier\glass169.jpg"; // example test image (can be absolute)
 
             string[] labelNames = { "Glass", "Metal", "Plastic" };
