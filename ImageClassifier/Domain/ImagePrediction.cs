@@ -1,7 +1,7 @@
 
 using Microsoft.ML.Data;
 
-namespace ImageClassifier;
+namespace ImageClassifier.Domain;
 
 public class ImagePrediction
 {

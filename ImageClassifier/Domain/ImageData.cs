@@ -1,4 +1,4 @@
-namespace ImageClassifier;
+namespace ImageClassifier.Domain;
 
 public class ImageData
 {

@@ -1,5 +1,9 @@
 ﻿
-namespace ImageClassifier;
+using ImageClassifier.Domain;
+using ImageClassifier.Interface_Adapter;
+using ImageClassifier.Service;
+
+namespace ImageClassifier.Application;
 
 class Program
 {

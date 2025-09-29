@@ -1,8 +1,9 @@
+using ImageClassifier.Domain;
 using Microsoft.ML;
 using Microsoft.ML.Data;
 using Microsoft.ML.Vision;
 
-namespace ImageClassifier;
+namespace ImageClassifier.Service;
 
 public static class ModelTrainer
 {

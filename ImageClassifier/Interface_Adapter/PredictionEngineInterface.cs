@@ -1,5 +1,7 @@
 
-namespace ImageClassifier;
+using ImageClassifier.Domain;
+
+namespace ImageClassifier.Interface_Adapter;
 
 public interface IPredictionEngine
 {
