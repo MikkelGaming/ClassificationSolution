@@ -37,7 +37,7 @@ class Program
         Console.ReadKey();
     }
 
-    static void PrintPrediction(string imagePath, ImagePrediction pred, string? trueLabel = null, string[]? labelNames = null)
+    protected static void PrintPrediction(string imagePath, ImagePrediction pred, string? trueLabel = null, string[]? labelNames = null)
     {
         Console.WriteLine($"\nImage: {imagePath}");
         if (!string.IsNullOrEmpty(trueLabel))
