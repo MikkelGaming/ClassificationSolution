@@ -6,7 +6,27 @@
         xmlns:local="clr-namespace:WpfImageClassifier"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    
+    
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
 
+        <!-- Bildauswahl -->
+        <Button x:Name="btnSelectImage" Content="Select Image" 
+                Width="120" Height="30" Margin="0,0,0,10"
+                Click="btnSelectImage_Click"/>
+        
+       <Border Grid.Row="1" BorderThickness="1" BorderBrush="Gray" 
+                HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Image x:Name="imgPreview" Stretch="Uniform" />
+        </Border>
+
+        <Button x:Name="btnRecognize" Grid.Row="2" Content="Start Recognition"
+                Width="200" Height="30" Margin="0,10,0,0"
+                Click="btnRecognize_Click"/>
     </Grid>
 </Window>
