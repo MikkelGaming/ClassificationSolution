@@ -13,7 +13,7 @@ namespace ClassifierGUIApp;
 
 public partial class MainWindow : Window
 {
-    
+
     private string selectedImagePath;
     public MainWindow()
     {
@@ -35,7 +35,7 @@ public partial class MainWindow : Window
         var result = await dialog.ShowAsync(this);
         if (result is { Length: > 0 })
         {
-             selectedImagePath = result[0];
+            selectedImagePath = result[0];
 
             using (var stream = File.OpenRead(selectedImagePath))
             {
@@ -51,14 +51,14 @@ public partial class MainWindow : Window
     {
         if (string.IsNullOrEmpty(selectedImagePath))
         {
-            MessageBox.Show(this,"Please select an image");
+            MessageBox.Show(this, "Please select an image");
             //MessageBox.Show(MainWindow.instance, ["Congratulations! You won the game!", $"Time taken: {DateTimeOffset.UtcNow.ToUnixTimeSeconds() - startTime} Seconds"], "Victory");
             return;
         }
 
-        ImageClassifier.Application.ImageClassifier imageClassifier = new ImageClassifier.Application.ImageClassifier();
+        ImageClassifier.Application.ImageClassifier imageClassifier = new();
         var prediction = imageClassifier.ClassifyImage(selectedImagePath);
-        
+
         MessageBox.Show(this, prediction.PredictedLabel);
 
         //MessageBox.Show($"Recognition started for: {selectedImagePath}");
