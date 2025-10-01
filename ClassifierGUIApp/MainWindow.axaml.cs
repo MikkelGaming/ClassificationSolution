@@ -59,7 +59,7 @@ public partial class MainWindow : Window
         ImageClassifier.Application.ImageClassifier imageClassifier = new();
         var prediction = imageClassifier.ClassifyImage(selectedImagePath);
 
-        MessageBox.Show(this, prediction.PredictedLabel);
+        MessageBox.Show(this, [$"{prediction.PredictedLabel}", prediction.Score[0].ToString()], "Result");
 
         //MessageBox.Show($"Recognition started for: {selectedImagePath}");
     }
