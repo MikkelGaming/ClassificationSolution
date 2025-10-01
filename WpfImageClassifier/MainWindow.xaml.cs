@@ -4,6 +4,10 @@ using System.Windows.Media.Imaging;
 using Microsoft.Win32;
 
 namespace WpfImageClassifier;
+
+/**
+ * VERY DEPRECATED. Vi bruger Avalonia nu. Check /ClassifierGUIApp
+ */
 public partial class MainWindow : Window
 {
     private string selectedImagePath;
