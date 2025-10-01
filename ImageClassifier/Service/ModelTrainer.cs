@@ -183,9 +183,6 @@ public static class ModelTrainer
         return model;
     }
 
-
-
-
     /// <summary>
     /// Find a column index by name in a DataViewSchema (compatibility helper for ML.NET versions lacking TryGetColumnIndex).
     /// </summary>
