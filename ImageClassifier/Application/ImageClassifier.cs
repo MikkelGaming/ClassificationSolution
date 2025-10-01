@@ -1,5 +1,3 @@
-
-using System.Numerics;
 using ImageClassifier.Domain;
 using ImageClassifier.Interface_Adapter;
 

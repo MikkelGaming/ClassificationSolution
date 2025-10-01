@@ -28,7 +28,6 @@ public static class FolderRetriver
                     if (!exts.Contains(Path.GetExtension(f))) continue;
                     trainList.Add(new ImageData { ImagePath = f, Label = cls });
                     trainCount++;
-                    Console.WriteLine($"  [train] {cls} -> {f}");
                 }
             }
 

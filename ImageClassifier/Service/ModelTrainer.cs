@@ -9,9 +9,9 @@ namespace ImageClassifier.Service;
 public static class ModelTrainer
 {
     private static string baseDir = @"../Images"; // must contain subfolders for each class
-    private static string[] classes = new[] { "Glass", "Metal", "Plastic" };
-    private static List<ImageData> trainList = new();
-    private static List<ImageData> validList = new();
+    private static string[] classes = ["Glass", "Metal", "Plastic"];
+    private static List<ImageData> trainList = [];
+    private static List<ImageData> validList = [];
     private static string _modelPath = "";
     private static MLContext? _mL;
 
@@ -23,8 +23,10 @@ public static class ModelTrainer
 
         FolderRetriver.ScanFolders(classes, ref trainList, ref validList, baseDir);
 
+        Console.WriteLine("Model path: " + _modelPath);
+
         // If saved model exists, load it; otherwise train and save
-        if (File.Exists(modelPath))
+        if (File.Exists(_modelPath))
         {
             return LoadModel();
         }
