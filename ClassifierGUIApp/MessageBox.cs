@@ -31,8 +31,8 @@ public class MessageBox
             Title = title,
             Content = stackPanel,
             WindowStartupLocation = WindowStartupLocation.CenterScreen,
-            Height = 300,
-            Width = 450
+            Height = 200,
+            Width = 320
         };
 
         okButton.Click += (_, _) => dialog.Close();
@@ -72,8 +72,8 @@ public class MessageBox
             Title = title,
             Content = stackPanel,
             WindowStartupLocation = WindowStartupLocation.CenterScreen,
-            Height = 300,
-            Width = 450
+            Height = 200,
+            Width = 320
         };
 
         okButton.Click += (_, _) => dialog.Close();
@@ -81,7 +81,7 @@ public class MessageBox
 
         dialog.ShowDialog(owner);
     }
-    
+
     public static void Show(Window owner, string message)
     {
         StackPanel stackPanel = new()
@@ -109,8 +109,8 @@ public class MessageBox
             Title = "MessageBox",
             Content = stackPanel,
             WindowStartupLocation = WindowStartupLocation.CenterScreen,
-            Height = 300,
-            Width = 450
+            Height = 200,
+            Width = 320
         };
 
         okButton.Click += (_, _) => dialog.Close();
