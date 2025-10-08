@@ -31,6 +31,7 @@ public partial class MainWindow : Window
                 new FileDialogFilter { Name = "Image Files", Extensions = { "jpg", "jpeg", "png", "bmp" } }
             }
         };
+        dialog.Directory = Environment.CurrentDirectory.Replace("/ClassifierGUIApp", "");
 
         var result = await dialog.ShowAsync(this);
         if (result is { Length: > 0 })
